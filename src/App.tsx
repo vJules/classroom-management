@@ -1,27 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Routes, Route } from 'react-router-dom';
 import './App.scss';
-import { useTranslation } from 'react-i18next';
+import Layout from './Layout';
+import Classrooms from './pages/Classrooms';
+import About from './pages/About';
+import NotFound from './pages/NotFound';
 
-function App() {
-  const { t } = useTranslation();
-
+export default function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>{t('welcome')}</p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Classrooms />} />
+          <Route path='about' element={<About />} />
+          <Route path='*' element={<NotFound />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
-
-export default App;

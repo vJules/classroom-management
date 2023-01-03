@@ -4,6 +4,7 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n';
+import { BrowserRouter } from 'react-router-dom';
 
 if (process.env.NODE_ENV === 'development') {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -16,7 +17,9 @@ if (process.env.NODE_ENV === 'development') {
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
 );
 
