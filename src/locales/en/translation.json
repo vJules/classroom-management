@@ -1,3 +1,11 @@
 {
-  "welcome": "Welcome to Classroom Management"
+  "welcome": "Welcome to Classroom Management",
+  "header": {
+    "logoTitle": "Classroom management",
+    "userNamePlaceholder": "Benny Jensen"
+  },
+  "navigationItems": {
+    "classrooms": "Classrooms",
+    "about": "About"
+  }
 }
