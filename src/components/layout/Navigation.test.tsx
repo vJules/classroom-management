@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import Navigation from './Navigation';
-import { renderWithRouter } from '../utils/test';
+import { renderWithRouter } from '../../utils/test';
 
 const links = [
   { title: 'Classrooms', path: '/' },

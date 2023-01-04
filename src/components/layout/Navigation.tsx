@@ -20,7 +20,7 @@ export default function Navigation({ links }: NavigationProps) {
         {links.map((link) => {
           const isActive = pathname === link.path;
           return (
-            <li key={link.path} className={styles['navigation-item']}>
+            <li key={link.path}>
               <Link
                 className={`${styles['navigation-link']} ${
                   isActive ? styles['navigation-link--active'] : ''

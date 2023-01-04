@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  border-bottom: 1px solid var(--border-grey);
+  border-bottom: 1px solid var(--color-border-grey);
   @media only screen and (min-width: 600px) {
     width: 200px;
     border-bottom: none;
-    border-right: 1px solid var(--border-grey);
+    border-right: 1px solid var(--color-border-grey);
   }
 }
 
@@ -16,11 +16,8 @@
   margin: 0;
 }
 
-.navigation-item {
-}
-
 .navigation-link {
-  color: var(--black);
+  color: var(--color-black);
   text-decoration: none;
   padding: 5px 15px;
   display: block;

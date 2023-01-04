@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import Layout from './Layout';
-import { renderWithRouter } from '../utils/test';
+import { renderWithRouter } from '../../utils/test';
 
 describe('Navigation', () => {
   it('should render the navigation', () => {

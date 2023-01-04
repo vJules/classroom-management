@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from '../assets/svg/logo.svg';
-import avatar from '../assets/svg/avatar.svg';
+import logo from '../../assets/svg/logo.svg';
+import avatar from '../../assets/svg/avatar.svg';
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';

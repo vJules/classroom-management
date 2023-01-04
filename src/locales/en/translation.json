@@ -7,5 +7,13 @@
   "navigationItems": {
     "classrooms": "Classrooms",
     "about": "About"
+  },
+  "classroomList": {
+    "emptyList": "There are currently no classrooms added."
+  },
+  "classroomListItem": {
+    "numberOfStudents_zero": "This classroom has no students",
+    "numberOfStudents_one": "This classroom has {{count}} student",
+    "numberOfStudents_other": "This classroom has {{count}} students"
   }
 }

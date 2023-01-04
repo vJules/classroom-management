@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import Header from './Header';
-import { renderWithRouter } from '../utils/test';
+import { renderWithRouter } from '../../utils/test';
 
 describe('Header', () => {
   it('should render the app logo', () => {
