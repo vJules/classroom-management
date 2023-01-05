@@ -14,20 +14,22 @@ export default function Classroom() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    if (id) {
-      setIsLoading(true);
-      getClassroomById(id)
-        .then((results) => results.json())
-        .then((data: IClassroom) => {
-          setClassroom(data);
-        })
-        .catch(() => {
-          setHasError(true);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
+    if (!id) {
+      setHasError(true);
+      return;
     }
+    setIsLoading(true);
+    getClassroomById(id)
+      .then((results) => results.json())
+      .then((data: IClassroom) => {
+        setClassroom(data);
+      })
+      .catch(() => {
+        setHasError(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   if (isLoading) {

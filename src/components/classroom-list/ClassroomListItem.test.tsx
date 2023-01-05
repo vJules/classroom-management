@@ -11,14 +11,18 @@ const classrooom = {
   students: ['Peter'],
 };
 
+function renderClassroom() {
+  return renderWithRouter(<ClassroomListItem classroom={classrooom} />);
+}
+
 describe('ClassroomList', () => {
   it('should render a name for the classroom', () => {
-    renderWithRouter(<ClassroomListItem classroom={classrooom} />);
+    renderClassroom();
     expect(screen.getByText('Room 12')).toBeTruthy;
   });
 
   it('should show the number of students', () => {
-    renderWithRouter(<ClassroomListItem classroom={classrooom} />);
+    renderClassroom();
     expect(screen.getByText('classroomListItem.numberOfStudents')).toBeTruthy();
   });
 });

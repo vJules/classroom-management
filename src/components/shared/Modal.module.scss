@@ -2,10 +2,14 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
   height: auto;
   top: 100px;
   background-color: var(--color-white);
+  max-width: 100%;
+
+  @media only screen and (min-width: 900px) {
+    width: 800px;
+  }
 
   &__backdrop {
     position: fixed;
