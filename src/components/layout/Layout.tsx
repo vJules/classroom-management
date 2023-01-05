@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
@@ -16,9 +15,9 @@ export default function Layout() {
   return (
     <div className={styles['layout']}>
       <Header />
-      <div className={styles['layout-content']}>
+      <div className={styles['layout__content']}>
         <Navigation links={links} />
-        <main role='main' className={styles['main']}>
+        <main role='main' className={styles['layout__main']}>
           <Outlet />
         </main>
       </div>

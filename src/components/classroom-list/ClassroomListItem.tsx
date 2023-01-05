@@ -1,22 +1,12 @@
 import styles from './ClassroomListItem.module.scss';
-import classroomPlaceholder from '../assets/svg/classroom.svg';
+import classroomPlaceholder from '../../assets/svg/classroom.svg';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-
-export interface Classroom {
-  id: number;
-  name: string;
-  subjects: string[];
-  teacher: Person;
-  students: Person[];
-}
-
-interface Person {
-  name: string;
-}
+import Button from '../shared/Button';
+import { IClassroom } from '../../models/IClassroom';
 
 interface ClassroomListItemProps {
-  classroom: Classroom;
+  classroom: IClassroom;
 }
 
 export default function ClassroomListItem({ classroom }: ClassroomListItemProps) {
@@ -30,21 +20,21 @@ export default function ClassroomListItem({ classroom }: ClassroomListItemProps)
       data-testid='classroom-list-item'
     >
       <img
-        className={styles['classroom-list-item-image']}
+        className={styles['classroom-list-item__image']}
         src={classroomPlaceholder}
         alt='classroom image'
       />
 
-      <h3 className={styles['classroom-list-item-name']}>{classroom.name}</h3>
-      <p className={styles['classroom-list-item-students']}>
+      <h3 className={styles['classroom-list-item__name']}>{classroom.name}</h3>
+      <p className={styles['classroom-list-item__students']}>
         {t('classroomListItem.numberOfStudents', { count: classroom.students.length })}
       </p>
-      <button
-        className={styles['classroom-list-item-button']}
+      <Button
+        style='default'
+        type='button'
         onClick={() => navigate(`/classrooms/${classroom.id}`)}
-      >
-        Details
-      </button>
+        text='Details'
+      />
     </div>
   );
 }

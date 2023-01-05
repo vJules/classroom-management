@@ -1,14 +1,16 @@
 import React from 'react';
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import { renderWithRouter } from './utils/test';
 import App from './App';
 
-test('renders the classroom overview component on the index route', () => {
+test('renders the classroom overview component on the index route', async () => {
   window.history.pushState({}, 'About test page', '/');
 
   renderWithRouter(<App />);
-  const classroomsHeadline = screen.getByText(/Classrooms page/i);
-  expect(classroomsHeadline).toBeInTheDocument();
+
+  await waitFor(() => {
+    expect(screen.getByTestId('classrooms-page')).toBeDefined();
+  });
 });
 
 test('renders the about component on the /about route', () => {

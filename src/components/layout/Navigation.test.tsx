@@ -28,6 +28,6 @@ describe('Navigation', () => {
   it('should highlight the currently active route', () => {
     renderWithRouter(<Navigation links={links} />);
     const navItem = screen.getAllByTestId('nav-item-link');
-    expect(navItem[0]).toHaveClass('navigation-link--active');
+    expect(navItem[0]).toHaveClass('navigation__link--active');
   });
 });

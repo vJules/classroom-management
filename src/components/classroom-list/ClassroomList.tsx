@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import ClassroomListItem, { Classroom } from './ClassroomListItem';
+import ClassroomListItem from './ClassroomListItem';
 import styles from './ClassroomList.module.scss';
+import { IClassroom } from '../../models/IClassroom';
 
 interface ClassroomListProps {
-  classrooms: Classroom[];
+  classrooms: IClassroom[];
 }
 
 export default function ClassroomList({ classrooms }: ClassroomListProps) {
@@ -13,7 +14,7 @@ export default function ClassroomList({ classrooms }: ClassroomListProps) {
   }
   return (
     <div className='classroom-list row' data-testid='classroom-list'>
-      {classrooms.map((classroom: Classroom) => {
+      {classrooms.map((classroom: IClassroom) => {
         return (
           <div
             className={`col-12 col-sm-6 col-md-4 col-xl-3 ${styles['classroom-list-column']}`}

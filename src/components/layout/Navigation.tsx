@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Navigation.module.scss';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -14,16 +13,20 @@ interface NavigationProps {
 export default function Navigation({ links }: NavigationProps) {
   const { pathname } = useLocation();
 
+  function isClassroomPage(path: string) {
+    return path === '/' && pathname.indexOf('classroom') > 0;
+  }
+
   return (
     <nav role='navigation' className={styles['navigation']}>
-      <ul className={styles['navigation-list']} data-testid='nav-list'>
+      <ul className={styles['navigation__list']} data-testid='nav-list'>
         {links.map((link) => {
-          const isActive = pathname === link.path;
+          const isActive = pathname === link.path || isClassroomPage(link.path);
           return (
             <li key={link.path}>
               <Link
-                className={`${styles['navigation-link']} ${
-                  isActive ? styles['navigation-link--active'] : ''
+                className={`${styles['navigation__link']} ${
+                  isActive ? styles['navigation__link--active'] : ''
                 }`}
                 to={link.path}
                 data-testid='nav-item-link'

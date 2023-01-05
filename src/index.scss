@@ -6,6 +6,13 @@
   --color-black: #000;
   --color-border-grey: #e3e8f4;
   --color-main-bg: #f7f8fe;
+  --color-grey: #ecf0f1;
+  --color-grey-dark: #bdc3c7;
+  --color-grey-darker: #666869;
+  --color-primary: #3498db;
+  --color-primary-dark: #2980b9;
+  --color-warning: #e74c3c;
+  --color-warning-dark: #c0392b;
 }
 
 * {
@@ -22,4 +29,10 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 20px 0;
+  color: var(--color-grey-darker);
 }

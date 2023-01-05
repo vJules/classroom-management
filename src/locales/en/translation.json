@@ -1,5 +1,4 @@
 {
-  "welcome": "Welcome to Classroom Management",
   "header": {
     "logoTitle": "Classroom management",
     "userNamePlaceholder": "Benny Jensen"
@@ -8,6 +7,9 @@
     "classrooms": "Classrooms",
     "about": "About"
   },
+  "classroomsPage": {
+    "headline": "Manage classrooms"
+  },
   "classroomList": {
     "emptyList": "There are currently no classrooms added."
   },
@@ -15,5 +17,19 @@
     "numberOfStudents_zero": "This classroom has no students",
     "numberOfStudents_one": "This classroom has {{count}} student",
     "numberOfStudents_other": "This classroom has {{count}} students"
+  },
+  "classroomPage": {
+    "back": "Back to classroom overview"
+  },
+  "classroomDetails": {
+    "teacherLabel": "Teacher",
+    "studentsLabel": "Students",
+    "subjectsLabel": "Subjects"
+  },
+  "classroomForm": {
+    "roomName": "Room name",
+    "teacher": "Teacher",
+    "subjects": "Subjects",
+    "students": "Students"
   }
 }

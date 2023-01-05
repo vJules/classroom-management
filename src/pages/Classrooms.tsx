@@ -1,62 +1,40 @@
-import { useState } from 'react';
-import ClassroomList from '../components/ClassroomList';
-import { Classroom } from '../components/ClassroomListItem';
-
-const mockClassrooms: Classroom[] = [
-  {
-    name: 'Room 53',
-    id: 1,
-    teacher: { name: 'Henrik' },
-    subjects: ['English', 'Math', 'German'],
-    students: [{ name: 'Lars' }, { name: 'Lotte' }],
-  },
-  {
-    name: 'Room 12',
-    id: 2,
-    teacher: { name: 'Louise' },
-    subjects: ['English'],
-    students: [{ name: 'Peter' }, { name: 'Anna' }],
-  },
-  {
-    name: 'Room 64',
-    id: 3,
-    teacher: { name: '' },
-    subjects: [],
-    students: [],
-  },
-  {
-    name: 'Room 1642',
-    id: 4,
-    teacher: { name: 'Louise' },
-    subjects: ['English'],
-    students: [{ name: 'Poul' }],
-  },
-  {
-    name: 'Room 12',
-    id: 5,
-    teacher: { name: 'Louise' },
-    subjects: ['English'],
-    students: [{ name: 'Peter' }, { name: 'Anna' }],
-  },
-  {
-    name: 'Room 12',
-    id: 6,
-    teacher: { name: 'Louise' },
-    subjects: ['English'],
-    students: [{ name: 'Peter' }, { name: 'Anna' }],
-  },
-];
+import { useEffect, useState } from 'react';
+import ClassroomList from '../components/classroom-list/ClassroomList';
+import { getClassrooms } from '../services/classrooms';
+import AddClassroom from '../components/classroom-list/AddClassroom';
+import Loader from '../components/shared/Loader';
+import { IClassroom } from '../models/IClassroom';
+import { t } from 'i18next';
 
 export default function Classrooms() {
-  const [classrooms, setClassrooms] = useState(mockClassrooms);
+  const [classrooms, setClassrooms] = useState([] as IClassroom[]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    getClassrooms()
+      .then((results) => results.json())
+      .then((data) => {
+        setClassrooms(data);
+      })
+      .catch(() => {
+        setHasError(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
+
+  if (isLoading) return <Loader></Loader>;
+
+  if (hasError) return <div>Something went wrong</div>;
 
   return (
-    <div className='container'>
-      <h2>Classrooms page</h2>
+    <div data-testid='classrooms-page' className='container'>
+      <h2>{t('classroomsPage.headline')}</h2>
       <ClassroomList classrooms={classrooms}></ClassroomList>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <button>Add new classroom</button>
-      </div>
+      <AddClassroom setClassrooms={(classrooms) => setClassrooms(classrooms)}></AddClassroom>
     </div>
   );
 }

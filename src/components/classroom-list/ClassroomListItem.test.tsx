@@ -1,14 +1,14 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import ClassroomListItem from './ClassroomListItem';
-import { renderWithRouter } from '../utils/test';
+import { renderWithRouter } from '../../utils/test';
 
 const classrooom = {
   name: 'Room 12',
-  id: 1,
-  teacher: { name: 'Louise' },
+  id: '1',
+  teacher: 'Louise',
   subjects: ['English'],
-  students: [{ name: 'Peter' }],
+  students: ['Peter'],
 };
 
 describe('ClassroomList', () => {

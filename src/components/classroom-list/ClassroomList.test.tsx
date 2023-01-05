@@ -1,24 +1,25 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import ClassroomList from './ClassroomList';
-import { renderWithRouter } from '../utils/test';
+import { renderWithRouter } from '../../utils/test';
+import { IClassroom } from '../../models/IClassroom';
 
-const classrooms = [
+const classrooms: IClassroom[] = [
   {
     name: 'Room 53',
-    id: 1,
-    teacher: { name: 'Henrik' },
+    id: '1',
+    teacher: 'Henrik',
     subjects: ['English', 'Math', 'German'],
-    students: [{ name: 'Lars' }],
+    students: ['Lars'],
   },
 ];
 
 const additionalClassrooom = {
   name: 'Room 12',
-  id: 2,
-  teacher: { name: 'Louise' },
+  id: '2',
+  teacher: 'Louise',
   subjects: ['English'],
-  students: [{ name: 'Peter' }],
+  students: ['Peter'],
 };
 
 describe('ClassroomList', () => {
