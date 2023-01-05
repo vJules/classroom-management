@@ -12,7 +12,7 @@ const classrooom = {
 };
 
 function renderClassroom() {
-  return renderWithRouter(<ClassroomListItem classroom={classrooom} />);
+  return renderWithRouter(<ClassroomListItem {...classrooom} />);
 }
 
 describe('ClassroomList', () => {

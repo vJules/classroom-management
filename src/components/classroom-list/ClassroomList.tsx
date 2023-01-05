@@ -20,7 +20,11 @@ export default function ClassroomList({ classrooms }: ClassroomListProps) {
             className={`col-12 col-sm-6 col-md-4 col-xl-3 ${styles['classroom-list-column']}`}
             key={classroom.id}
           >
-            <ClassroomListItem classroom={classroom}></ClassroomListItem>
+            <ClassroomListItem
+              id={classroom.id}
+              name={classroom.name}
+              students={classroom.students}
+            ></ClassroomListItem>
           </div>
         );
       })}
