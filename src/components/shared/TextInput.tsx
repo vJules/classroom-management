@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './TextInput.module.scss';
 
-interface TextInputProps {
+export interface TextInputProps {
   label: string;
   id: string;
   value: string;
@@ -21,9 +21,12 @@ export default function Input({ label, id, onChange, onKeyPress, value }: TextIn
       </label>
       <div className={styles['input__wrapper']}>
         <input
+          role='input'
           className={styles['input__field']}
           type='text'
           value={value}
+          id={id}
+          name={id}
           onChange={handleInputChange}
           onKeyPress={onKeyPress}
         />

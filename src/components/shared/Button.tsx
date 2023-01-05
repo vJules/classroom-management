@@ -11,6 +11,7 @@ export default function Button({ style = 'default', text, type = 'button', onCli
   return (
     <button
       type={type}
+      role='button'
       className={`${styles['button']} ${styles['button--' + style]}`}
       onClick={onClick}
     >
